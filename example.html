@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
-        var url="http://127.0.0.1:5000/cane";
+        var url="/cane";
         var result;
-        $(document).ready(function() {
-
-            $.get("127.0.0.1:5000/cane").done(function (data) {
-                window.alert("finito!");// request finished
+        $.ajax({
+            type: 'GET',
+            dataType: "text",
+            crossDomain: true,
+            url: "http://127.0.0.1:5000/cane",
+            success: function (data) {
+                window.alert("we have done it!");
+                }
             });
-        });
     </script>
 </head>
 <body>
