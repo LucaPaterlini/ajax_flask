@@ -4,18 +4,33 @@
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
-        $.ajax({
+        var glob;
+        var url="http://127.0.0.1:5000/cane";
+        /*$.ajax({
             type: 'GET',
             dataType: "text",
             crossDomain: true,
             url: "http://127.0.0.1:5000/cane",
             success: function (data) {
-                window.alert("we have done it!");
+                window.alert(data);
+                glob=JSON.load(data)[0];
                 }
             });
+        $("#hi").innerHTML=glob;*/
+        $.getJSON({
+            dataType: "json",
+            url: url,
+            crossDomain: true,
+            success: function( data ) {
+                $("#hi").append(data[0]);
+            }
+
+        });
+
     </script>
 </head>
 <body>
+<div id="hi"></div>
 
 </body>
 </html>
